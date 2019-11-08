@@ -163,7 +163,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData, err) {
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup);
   // updateDataToolTip
-  var circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup);
+  // var circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup);
 
   // x axis labels event listener
   xLabelsGroup.selectAll("text")
@@ -194,7 +194,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData, err) {
         circlesGroup = updateToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup);
 
         // updates dataToolTip with new info
-        circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup)
+        // circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup)
 
         // changes classes to change bold text
         if (chosenXAxis === "age") {
@@ -265,7 +265,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData, err) {
         circlesGroup = updateToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup);        
 
         // updates dataToolTip with new info
-        circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup)
+        // circlesGroup = updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup)
 
         // changes classes to change bold text
         if (chosenYAxis === "healthcare") {

@@ -168,6 +168,27 @@ function xScale(censusData, chosenXAxis) {
       });
   
     circlesGroup.call(toolTip);
+
+    var dataToolTip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([-15, -15])
+    .html(function(d) {
+      label = `${d.abbr}<br>
+      Poverty: ${d["poverty"]} (%)<br>
+      Age: ${d["age"]}<br>
+      income:  ${money.format(d["income"])}<br>
+      HealthCare: ${d["healthcare"]} (%)<br>
+      Obesity: ${d["obesity"]} (%)<br>
+      Smokes: ${d["smokes"]} (%)<br>` // Close label
+      return (label);
+    });
+
+  circlesGroup.call(dataToolTip);
+
+  circlesGroup.on("click", function(data) {
+    dataToolTip.show(data, this);
+    toolTip.hide(data, this);
+  })
   
     circlesGroup.on("mouseover", function(data) {
       toolTip.show(data, this);
@@ -176,43 +197,44 @@ function xScale(censusData, chosenXAxis) {
       // onmouseout event
       .on("mouseout", function(data, index) {
         toolTip.hide(data, this);
+        dataToolTip.hide(data, this);
       });
   
     return circlesGroup;
   }
 
-    // // function used for updating circles group with new tooltip
-    function updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup) {
-      if(DEBUG){
-        console.log(`In updateDataToolTip: xAxis ${chosenXAxis}, y: ${chosenYAxis}`);
-      }
+    // // // function used for updating circles group with new data Table tooltip
+    // function updateDataToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup) {
+    //   if(DEBUG){
+    //     console.log(`In updateDataToolTip: xAxis ${chosenXAxis}, y: ${chosenYAxis}`);
+    //   }
     
 
-      var dataToolTip = d3.tip()
-        .attr("class", "d3-tip")
-        .offset([-15, -15])
-        .html(function(d) {
-          label = `${d.abbr}<br>
-          Poverty: ${d["poverty"]} (%)<br>
-          Age: ${d["age"]}<br>
-          income:  ${money.format(d["income"])}<br>
-          HealthCare: ${d["healthcare"]} (%)<br>
-          Obesity: ${d["obesity"]} (%)<br>
-          Smokes: ${d["smokes"]} (%)<br>` // Close label
-          return (label);
-        });
+    //   var dataToolTip = d3.tip()
+    //     .attr("class", "d3-tip")
+    //     .offset([-15, -15])
+    //     .html(function(d) {
+    //       label = `${d.abbr}<br>
+    //       Poverty: ${d["poverty"]} (%)<br>
+    //       Age: ${d["age"]}<br>
+    //       income:  ${money.format(d["income"])}<br>
+    //       HealthCare: ${d["healthcare"]} (%)<br>
+    //       Obesity: ${d["obesity"]} (%)<br>
+    //       Smokes: ${d["smokes"]} (%)<br>` // Close label
+    //       return (label);
+    //     });
     
-      circlesGroup.call(dataToolTip);
+    //   circlesGroup.call(dataToolTip);
     
-      circlesGroup.on("click", function(data) {
-        dataToolTip.show(data, this);
-        toolTip.hide(data, this);
-      })
+    //   circlesGroup.on("click", function(data) {
+    //     dataToolTip.show(data, this);
+    //     toolTip.hide(data, this);
+    //   })
     
-        // onmouseout event
-        .on("mouseleave", function(data, index) {
-          dataToolTip.hide(data, this);
-        });
+    //     // onmouseout event
+    //     .on("mouseleave", function(data, index) {
+    //       dataToolTip.hide(data, this);
+    //     });
     
-      return circlesGroup;
-    }
+    //   return circlesGroup;
+    // }
