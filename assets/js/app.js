@@ -80,7 +80,7 @@ d3.csv("./assets/data/data.csv").then(function (censusData, err) {
     .classed("x-axis", true)
     .call(leftAxis);
 
-    
+
   // append initial circles
   var circlesGroup = chartGroup.selectAll("circle")
     .data(censusData)
@@ -95,6 +95,7 @@ d3.csv("./assets/data/data.csv").then(function (censusData, err) {
     .attr("fill", "blue")
     .attr("opacity", "1")
 
+    
   // Append circle text 
   var circlesTextGroup = chartGroup.selectAll("circles")
     .data(censusData)
