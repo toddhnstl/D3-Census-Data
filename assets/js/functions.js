@@ -35,7 +35,7 @@ function renderXAxes(newXScale, xAxis) {
 }
 
 // function used for updating circles group with a transition to
-// new x value circles
+// new x value circles 
 function renderXCircles(circlesGroup, newXScale, chosenXaxis) {
 
   circlesGroup.transition()
