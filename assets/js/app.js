@@ -25,9 +25,11 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+
 // Initial Params
 var chosenXAxis = "poverty"; // xAxis
 var chosenYAxis = "healthcare" // yAxis - healthcare
+
 
 // functions in functions.js
 
