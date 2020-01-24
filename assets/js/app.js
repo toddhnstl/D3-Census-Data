@@ -58,12 +58,15 @@ d3.csv("./assets/data/data.csv").then(function (censusData, err) {
   // xLinearScale function above csv import
   var xLinearScale = xScale(censusData, chosenXAxis);
 
+
   // Create y scale function
   var yLinearScale = yScale(censusData, chosenYAxis)
+
 
   // Create initial axis functions
   var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
+
 
   // append x axis
   var xAxis = chartGroup.append("g")
@@ -71,11 +74,13 @@ d3.csv("./assets/data/data.csv").then(function (censusData, err) {
     .attr("transform", `translate(0, ${height})`)
     .call(bottomAxis);
 
+
   // append y axis
   var yAxis = chartGroup.append("g")
     .classed("x-axis", true)
     .call(leftAxis);
 
+    
   // append initial circles
   var circlesGroup = chartGroup.selectAll("circle")
     .data(censusData)
