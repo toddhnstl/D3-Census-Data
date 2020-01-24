@@ -171,6 +171,7 @@ function updateToolTip(censusData, chosenXAxis, chosenYAxis, circlesGroup) {
 
   circlesGroup.call(toolTip);
 
+  
   var dataToolTip = d3.tip()
     .attr("class", "d3-tip")
     .offset([-15, -15])
